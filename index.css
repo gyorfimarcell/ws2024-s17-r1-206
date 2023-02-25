@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+
+    background-image: url("images/ub2023_3.jpg") ;
+    background-size: cover;
+
+    color: white;
+}
+
+#content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#stripe {
+    width: 100vw;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+
+    z-index: -1;
+
+    background-color: rgba(36, 150, 212, 0.8);
+    clip-path: polygon(0 40%, 100% 20%, 100% 100%, 0 100%);
+}
+
+#logo {
+    width: clamp(320px, 90vw, 600px);
+    margin-top: 20px;
+    filter: drop-shadow(5px 5px 2px black);
+}
+
+h1 {
+    font-size: min(10vw, 64px);
+}
+
+h2 {
+    font-size: min(8vw, 48px);
+}
+
+h1, h2 {
+    margin: 0;
+    text-shadow: 5px 5px 2px black;
+}
+
+#calculator {
+    max-width: 500px;
+    padding: 0 20px;
+
+    display: flex;
+
+    text-align: justify;
+}
+
+#calculator p {
+    margin: 8px 0;
+}
+
+#calculator-icon {
+    width: min(180px, 20vw);
+    filter: invert();
+    display: none;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+}
+
+#icon-container {
+    display: flex;
+    justify-content: space-evenly;
+    
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
+#icon-container a {
+    position: relative;
+    top: 0;
+    transition: top ease 0.25s;
+}
+
+#icon-container a:hover {
+    top: -10px;
+}
+
+#icon-container img {
+    width: 48px;
+    height: 100%;
+    filter: invert();
+}
+
+@media screen and (min-width: 768px) {
+    #stripe {
+        clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    #calculator-icon {
+        display: block;
+    }
+
+    #icon-container {
+        right: 0;
+        width: 250px;
+        margin: 10px;
+    }
+}

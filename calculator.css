@@ -1,0 +1,69 @@
+#container {
+    display: flex;
+}
+
+.side {
+    flex: 3;
+    padding: 20px;
+    background-color: beige;
+    margin: 20px;
+}
+
+.side:nth-child(1) {
+    flex: 2;
+}
+
+header, .row {
+    display: flex;
+    background-color: lightgray;
+}
+
+.row:nth-child(even) {
+    background-color: whitesmoke;
+}
+
+.col {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+}
+
+header {
+    font-weight: bold;
+}
+
+/* Line number columns */
+.col:nth-child(1) {
+    max-width: 20px;
+    text-align: left;
+}
+
+/* Member table Distance column */
+#member-table .col:nth-child(5), #member-table .col:nth-child(4) {
+    max-width: 80px;
+}
+
+#stage-table .col:nth-child(2) {
+    max-width: 60px;
+}
+
+#stage-table .col:nth-child(7) {
+    max-width: 60px;
+}
+
+input[type=text] {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+select {
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 3%;
+    padding: 0 10px;
+    background-color: transparent;
+    font-size: 1rem;
+}
