@@ -1,10 +1,22 @@
 body {
     margin: 0;
 
-    background-image: url("images/ub2023_3.jpg") ;
+    background-image: url("images/ub2023_3.jpg");
     background-size: cover;
 
     color: white;
+    --accent-color: #e66b0a;
+}
+
+#stripe {
+    width: 100vw;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+
+    background-color: rgba(36, 150, 212, 0.8);
+    clip-path: polygon(0 40%, 100% 20%, 100% 100%, 0 100%);
 }
 
 #content {
@@ -14,22 +26,28 @@ body {
     align-items: center;
 }
 
-#stripe {
-    width: 100vw;
-    height: 75vh;
-    position: absolute;
-    bottom: 0;
-
-    z-index: -1;
-
-    background-color: rgba(36, 150, 212, 0.8);
-    clip-path: polygon(0 40%, 100% 20%, 100% 100%, 0 100%);
-}
 
 #logo {
     width: clamp(320px, 90vw, 600px);
     margin-top: 20px;
     filter: drop-shadow(5px 5px 2px black);
+    transition: transform ease 0.25s;
+}
+
+#logo:hover {
+    transform: scale(1.05);
+}
+
+h1,
+h2 {
+    margin: 0;
+    text-shadow: 5px 5px 2px black;
+    transition: color ease 0.25s;
+}
+
+h1:hover,
+h2:hover {
+    color: var(--accent-color);
 }
 
 h1 {
@@ -40,41 +58,59 @@ h2 {
     font-size: min(8vw, 48px);
 }
 
-h1, h2 {
-    margin: 0;
-    text-shadow: 5px 5px 2px black;
-}
 
 #calculator {
     max-width: 500px;
     padding: 0 20px;
-
     display: flex;
-
-    text-align: justify;
 }
 
 #calculator p {
     margin: 8px 0;
+    font-size: 16px;
+    text-align: justify;
+    text-shadow: 1px 1px 2px black;
 }
 
 #calculator-icon {
     width: min(180px, 20vw);
     filter: invert();
     display: none;
+    transition: transform ease 0.25s;
+}
+
+#calculator-icon:hover {
+    transform: scale(1.05);
 }
 
 button {
     width: 100%;
     height: 40px;
+
     border: none;
     border-radius: 10px;
+
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    
+    cursor: pointer;
+    background-color: var(--accent-color);
+    transition: all ease 0.25s;
 }
+
+button:hover {
+    filter: drop-shadow(2px 2px 2px black);
+    transform: translateY(-1px);
+    background-color: #f5700a;
+}
+
 
 #icon-container {
     display: flex;
     justify-content: space-evenly;
-    
+
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -82,13 +118,11 @@ button {
 }
 
 #icon-container a {
-    position: relative;
-    top: 0;
-    transition: top ease 0.25s;
+    transition: transform ease 0.25s;
 }
 
 #icon-container a:hover {
-    top: -10px;
+    transform: translateY(-10px);
 }
 
 #icon-container img {
@@ -96,6 +130,7 @@ button {
     height: 100%;
     filter: invert();
 }
+
 
 @media screen and (min-width: 768px) {
     #stripe {
