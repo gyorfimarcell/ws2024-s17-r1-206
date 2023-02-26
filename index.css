@@ -1,11 +1,5 @@
 body {
-    margin: 0;
-
     background-image: url("images/ub2023_3.jpg");
-    background-size: cover;
-
-    color: white;
-    --accent-color: #e66b0a;
 }
 
 #stripe {
@@ -24,30 +18,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 
 #logo {
     width: clamp(320px, 90vw, 600px);
     margin-top: 20px;
-    filter: drop-shadow(5px 5px 2px black);
-    transition: transform ease 0.25s;
-}
-
-#logo:hover {
-    transform: scale(1.05);
-}
-
-h1,
-h2 {
-    margin: 0;
-    text-shadow: 5px 5px 2px black;
-    transition: color ease 0.25s;
-}
-
-h1:hover,
-h2:hover {
-    color: var(--accent-color);
 }
 
 h1 {
@@ -83,38 +60,13 @@ h2 {
     transform: scale(1.05);
 }
 
-button {
-    width: 100%;
-    height: 40px;
-
-    border: none;
-    border-radius: 10px;
-
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px black;
-    
-    cursor: pointer;
-    background-color: var(--accent-color);
-    transition: all ease 0.25s;
-}
-
-button:hover {
-    filter: drop-shadow(2px 2px 2px black);
-    transform: translateY(-1px);
-    background-color: #f5700a;
-}
-
 
 #icon-container {
     display: flex;
     justify-content: space-evenly;
 
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 
 #icon-container a {
@@ -142,6 +94,8 @@ button:hover {
     }
 
     #icon-container {
+        position: absolute;
+        bottom: 0;
         right: 0;
         width: 250px;
         margin: 10px;

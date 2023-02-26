@@ -1,25 +1,82 @@
+body {
+    background-image: url("images/ub2023_1.jpg");
+}
+
+#header-section {
+    height: 400px;
+    padding: 20px 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+#header-section div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+button {
+    width: 400px;
+}
+
+
 #container {
     display: flex;
 }
 
 .side {
     flex: 3;
-    padding: 20px;
-    background-color: beige;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--main-color);
+    border-radius: 20px;
     margin: 20px;
+    max-height: calc(100vh - 40px);
 }
 
 .side:nth-child(1) {
     flex: 2;
+    margin-right: 0;
 }
 
-header, .row {
+.title {
     display: flex;
-    background-color: lightgray;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
 }
 
-.row:nth-child(even) {
-    background-color: whitesmoke;
+.icon {
+    height: 48px;
+    filter: invert() drop-shadow(5px 5px 2px black);
+}
+
+.table {
+    overflow: hidden;
+}
+
+.table-header, .row {
+    display: flex;
+    padding: 0 5px;
+}
+
+.row-container {
+    height: 100%;
+    overflow-y: auto;
 }
 
 .col {
@@ -28,42 +85,75 @@ header, .row {
     text-align: center;
 }
 
-header {
+.row {
+    border-bottom: 1px solid lightgray;
+    text-shadow: 1px 1px 2px black;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.table-header {
+    border-bottom: 5px solid white;
+
     font-weight: bold;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px black;
 }
 
 /* Line number columns */
 .col:nth-child(1) {
     max-width: 20px;
-    text-align: left;
 }
 
-/* Member table Distance column */
 #member-table .col:nth-child(5), #member-table .col:nth-child(4) {
+    max-width: 100px;
+}
+
+#stage-table .col:nth-child(2), #stage-table .col:nth-child(7) {
     max-width: 80px;
 }
 
-#stage-table .col:nth-child(2) {
-    max-width: 60px;
-}
+input[type=text], select {
+    height: 100%;
+    width: 100%;
 
-#stage-table .col:nth-child(7) {
-    max-width: 60px;
+    border: none;
+    background-color: transparent;
+
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+
+    transition: color ease 0.25s;
 }
 
 input[type=text] {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: transparent;
+    font-style: italic;
+}
+
+input[type=text]::placeholder {
+    color: white;
+    opacity: 0.6;
+}
+
+input[type=text]:focus {
+    outline: none;
 }
 
 select {
-    border: none;
-    height: 100%;
-    width: 100%;
-    border-radius: 3%;
     padding: 0 10px;
-    background-color: transparent;
-    font-size: 1rem;
+    text-decoration: underline;
+    font-style: italic;
+    cursor: pointer;
+}
+
+input[type=text]:hover, select:hover {
+    color: lightgray;
+}
+
+option {
+    color: initial;
 }

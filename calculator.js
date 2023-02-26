@@ -8,6 +8,10 @@ fetch("https://ub2023-backend.onrender.com/api/v1/stages/")
             createStageRows(data);
 
             loadData();
+
+            updateRunnerOptions();
+            updateMemberTotalDistances();
+            updateStageTimes();
         }));
 
 
@@ -26,16 +30,19 @@ function createMemberRows() {
 
         let firstNameInput = document.createElement("input");
         firstNameInput.type = "text";
+        firstNameInput.placeholder = "First name";
         firstNameInput.className = "member-firstname";
         firstNameInput.onchange = onMemberNameChange;
 
         let lastNameInput = document.createElement("input");
         lastNameInput.type = "text";
+        lastNameInput.placeholder = "Last name";
         lastNameInput.className = "member-lastname";
         lastNameInput.onchange = onMemberNameChange;
 
         let speedInput = document.createElement("input");
         speedInput.type = "text";
+        speedInput.placeholder = "00:00";
         speedInput.className = "member-speed";
         speedInput.addEventListener("change", onMemberSpeedChange);
 
@@ -54,6 +61,9 @@ function createMemberRows() {
 function createStageRows(stageData) {
     const header = createHeader(["#", "Distance", "Starting point", "Arriving point", "Name", "Runner", "Time"]);
     stageTable.appendChild(header);
+
+    const rowContainer = document.createElement("div");
+    rowContainer.className = "row-container";
 
     stageData.forEach(stage => {
         let lineNumber = document.createElement("p");
@@ -81,8 +91,9 @@ function createStageRows(stageData) {
         time.className = "stage-time";
 
         const row = createRow([lineNumber, distance, startingLocation, arrivingLocation, name, runnerSelect, time]);
-        stageTable.appendChild(row);
+        rowContainer.appendChild(row);
     });
+    stageTable.appendChild(rowContainer);
 }
 
 /**
@@ -92,6 +103,7 @@ function createStageRows(stageData) {
  */
 function createHeader(titles) {
     let row = document.createElement("header");
+    row.className = "table-header";
 
     titles.forEach(title => {
         let cell = document.createElement("div");
@@ -255,7 +267,7 @@ function updateStageTimes() {
 
         }
         else {
-            timeElement.innerText = "";
+            timeElement.innerText = "00:00";
         }
     });
 }
@@ -302,9 +314,6 @@ function loadData() {
     selects.forEach((select, index) => {
         select.querySelector(`option[value="${assignments[index]}"]`).selected = true;
     });
-
-    updateMemberTotalDistances();
-    updateStageTimes();
 }
 //#endregion
 

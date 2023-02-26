@@ -6,18 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="calculator.css">
+    <link rel="shortcut icon" href="icons/calculator.svg" type="image/x-icon">
 </head>
 
 <body>
+    <header id="header-section">
+        <img src="images/UB-logo-yolo-feher-571x387.png" alt="Ultra Balaton logo" id="logo">
+        <div>
+            <h1>Route Assignment Calculator</h1>
+            <a href="/"><button>Back to landing page</button></a>
+        </div>
+    </header>
     <div id="container">
         <div class="side">
-            <h1>Team members</h1>
-            <div id="member-table"></div>
+            <div class="title">
+                <img src="icons/people.svg" class="icon">
+                <h2>Team members</h2>
+            </div>
+            <div class="table" id="member-table"></div>
         </div>
         <div class="side">
-            <h1>Stage assignment</h1>
-            <div id="stage-table"></div>
+            <div class="title">
+                <img src="icons/map.svg" class="icon">
+                <h2>Stage assignment</h2>
+            </div>
+            <div class="table" id="stage-table"></div>
         </div>
     </div>
 
