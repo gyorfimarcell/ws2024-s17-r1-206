@@ -4,12 +4,14 @@ body {
     background-size: cover;
     --main-color: rgba(36, 150, 212, 0.8);
     --accent-color: #e66b0a;
+    --shadow-big: 5px 5px 2px black;
+    --shadow-small: 1px 1px 2px black;
 }
 
 h1,
 h2 {
     margin: 0;
-    text-shadow: 5px 5px 2px black;
+    text-shadow: var(--shadow-big);
     transition: color ease 0.25s;
 }
 
@@ -18,14 +20,16 @@ h2:hover {
     color: var(--accent-color);
 }
 
+
 #logo {
-    filter: drop-shadow(5px 5px 2px black);
+    filter: drop-shadow(var(--shadow-big));
     transition: transform ease 0.25s;
 }
 
 #logo:hover {
     transform: scale(1.05);
 }
+
 
 button {
     width: 100%;
@@ -37,8 +41,8 @@ button {
     color: white;
     font-size: 24px;
     font-weight: bold;
-    text-shadow: 1px 1px 2px black;
-    
+    text-shadow: var(--shadow-small);
+
     cursor: pointer;
     background-color: var(--accent-color);
     transition: all ease 0.25s;

@@ -2,7 +2,17 @@ body {
     background-image: url("images/ub2023_1.jpg");
 }
 
-#header-section {
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+
+/* [Page header] */
+#page-header {
     height: 400px;
     padding: 20px 100px;
 
@@ -12,26 +22,19 @@ body {
     gap: 30px;
 }
 
-#header-section div {
+#page-header div {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
 }
 
-h1 {
-    font-size: 64px;
-}
-
-h2 {
-    font-size: 48px;
-}
-
-button {
+#page-header button {
     width: 400px;
 }
 
 
+/* [Page layout] */
 #container {
     display: flex;
 }
@@ -65,8 +68,15 @@ button {
     filter: invert() drop-shadow(5px 5px 2px black);
 }
 
+
+/* [Table layout] */
 .table {
     overflow: hidden;
+}
+
+.table-body {
+    height: 100%;
+    overflow-y: auto;
 }
 
 .table-header, .row {
@@ -74,15 +84,12 @@ button {
     padding: 0 5px;
 }
 
-.row-container {
-    height: 100%;
-    overflow-y: auto;
-}
+.table-header {
+    border-bottom: 5px solid white;
 
-.col {
-    flex: 1;
-    padding: 5px;
-    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px black;
 }
 
 .row {
@@ -94,27 +101,31 @@ button {
     border-bottom: none;
 }
 
-.table-header {
-    border-bottom: 5px solid white;
-
-    font-weight: bold;
-    font-size: 20px;
-    text-shadow: 2px 2px 2px black;
+.col {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
 }
 
-/* Line number columns */
+
+/* [Column width overrides] */
+/* Line number */
 .col:nth-child(1) {
     max-width: 20px;
 }
 
-#member-table .col:nth-child(5), #member-table .col:nth-child(4) {
+/* Member speed & distance */
+#member-table .col:nth-child(4), #member-table .col:nth-child(5) {
     max-width: 100px;
 }
 
+/* Stage distance & time */
 #stage-table .col:nth-child(2), #stage-table .col:nth-child(7) {
     max-width: 80px;
 }
 
+
+/* [Inputs] */
 input[type=text], select {
     height: 100%;
     width: 100%;

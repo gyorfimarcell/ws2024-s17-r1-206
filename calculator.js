@@ -24,6 +24,9 @@ function createMemberRows() {
     const header = createHeader(["#", "First name", "Last name", "Speed", "Distance"]);
     memberTable.appendChild(header);
 
+    const tableBody = document.createElement("div");
+    tableBody.className = "table-body";
+
     for (let index = 0; index < 10; index++) {
         let lineNumber = document.createElement("p");
         lineNumber.innerText = index + 1;
@@ -50,8 +53,9 @@ function createMemberRows() {
         distance.className = "member-distance";
 
         const row = createRow([lineNumber, firstNameInput, lastNameInput, speedInput, distance]);
-        memberTable.appendChild(row);
+        tableBody.appendChild(row);
     }
+    memberTable.appendChild(tableBody);
 }
 
 /**
@@ -62,8 +66,8 @@ function createStageRows(stageData) {
     const header = createHeader(["#", "Distance", "Starting point", "Arriving point", "Name", "Runner", "Time"]);
     stageTable.appendChild(header);
 
-    const rowContainer = document.createElement("div");
-    rowContainer.className = "row-container";
+    const tableBody = document.createElement("div");
+    tableBody.className = "table-body";
 
     stageData.forEach(stage => {
         let lineNumber = document.createElement("p");
@@ -85,15 +89,16 @@ function createStageRows(stageData) {
         let runnerSelect = document.createElement("select");
         runnerSelect.name = "stage-runner";
         runnerSelect.className = "stage-runner"
+        runnerSelect.setAttribute("aria-label", "Runner");
         runnerSelect.addEventListener("change", onRunnerChange);
 
         let time = document.createElement("p");
         time.className = "stage-time";
 
         const row = createRow([lineNumber, distance, startingLocation, arrivingLocation, name, runnerSelect, time]);
-        rowContainer.appendChild(row);
+        tableBody.appendChild(row);
     });
-    stageTable.appendChild(rowContainer);
+    stageTable.appendChild(tableBody);
 }
 
 /**
