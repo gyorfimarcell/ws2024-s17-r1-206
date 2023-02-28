@@ -66,12 +66,19 @@ h2 {
 .icon {
     height: 48px;
     filter: invert() drop-shadow(5px 5px 2px black);
+    transition: transform ease 0.25s;
+}
+
+.icon:hover {
+    transform: scale(1.1);
 }
 
 
 /* [Table layout] */
 .table {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .table-body {
@@ -91,6 +98,14 @@ h2 {
     font-weight: bold;
     font-size: 20px;
     text-shadow: 2px 2px 2px black;
+}
+
+.table-header .col {
+    transition: color ease 0.25s;
+}
+
+.table-header .col:hover {
+    color: var(--accent-color);
 }
 
 .row {

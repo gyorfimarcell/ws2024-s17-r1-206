@@ -1,6 +1,7 @@
 body {
     margin: 0;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
     background-size: cover;
     --main-color: rgba(36, 150, 212, 0.8);
     --accent-color: #e66b0a;

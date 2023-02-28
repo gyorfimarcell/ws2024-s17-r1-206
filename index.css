@@ -20,7 +20,7 @@ h2 {
     z-index: -1;
 
     background-color: var(--main-color);
-    clip-path: polygon(0 40%, 100% 20%, 100% 100%, 0 100%);
+    clip-path: polygon(0 30%, 100% 10%, 100% 100%, 0 100%);
 }
 
 #content {
@@ -47,7 +47,7 @@ h2 {
 
 #calculator p {
     margin: 8px 0;
-    font-size: 16px;
+    font-size: 18px;
     text-align: justify;
     text-shadow: var(--shadow-small);
 }
