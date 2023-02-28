@@ -45,6 +45,7 @@ function createMemberRows() {
 
         let speedInput = document.createElement("input");
         speedInput.type = "text";
+        speedInput.maxLength = 5;
         speedInput.placeholder = "00:00";
         speedInput.className = "member-speed";
         speedInput.addEventListener("change", onMemberSpeedChange);
@@ -265,6 +266,11 @@ function updateStageTimes() {
             //The speed string is converted into seconds, and multiplied by the distance
             const seconds = distance * (parseInt(speed.slice(0, 2)) * 60 + parseInt(speed.slice(3, 5)));
 
+            if (isNaN(seconds)) {
+                timeElement.innerText = "-";
+                return;
+            }
+
             //The time is converted back into MM:SS format
             const minutesString = Math.floor(seconds / 60).toString().padStart(2, '0');
             const secondsString = Math.floor(seconds % 60).toString().padStart(2, '0');
@@ -272,7 +278,7 @@ function updateStageTimes() {
 
         }
         else {
-            timeElement.innerText = "00:00";
+            timeElement.innerText = "-";
         }
     });
 }
@@ -341,10 +347,29 @@ function onMemberNameChange() {
  */
 function onMemberSpeedChange(event) {
     const field = event.target;
-    const inputTime = field.value;
+    let inputTime = field.value;
     //Input masking
-    if (inputTime && !inputTime.includes(":")) {
-        field.value = `${inputTime.slice(0, 2)}:${inputTime.slice(2, 4)}`;
+    if (inputTime) {
+        inputTime = inputTime.replaceAll(/[^\d:]/g, "0");
+
+        if (inputTime.includes(":")) {
+            const segments = inputTime.split(":");
+            const minutes = segments[0].slice(0, 2).padStart(2, "0");
+            const seconds = segments[1].slice(0, 2).padStart(2, "0");
+            field.value = `${minutes}:${seconds}`;
+        }
+        else {
+            let minutes = "00";
+            let seconds = "00";
+            if (inputTime.length < 3) {
+                seconds = inputTime.slice(0, 2).padStart(2, "0");
+            }
+            else {
+                minutes = inputTime.slice(0, 2).padStart(2, "0");
+                seconds = inputTime.slice(2, 4).padStart(2, "0");
+            }
+            field.value = `${minutes}:${seconds}`;
+        }
     }
 
     saveData();
